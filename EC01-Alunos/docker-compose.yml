@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    container_name: ec01-alunos
+    ports:
+      - "8080:80"
+    # Monta a pasta src dentro do container: ao editar os arquivos, basta
+    # recarregar o navegador (não precisa reconstruir a imagem).
+    volumes:
+      - ./src:/usr/share/nginx/html:ro

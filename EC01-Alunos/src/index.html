@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevTech Academy - Gerenciamento de Alunos</title>
+</head>
+<body>
+  <h1>DevTech Academy</h1>
+  <p>Gerenciamento de alunos: cadastrar, listar, editar, excluir e gerar relatórios.</p>
+
+  <!-- Exercício 1: formulário de cadastro (HTML puro, sem CSS) -->
+  <form id="form-aluno">
+    <fieldset>
+      <legend id="titulo-form">Cadastrar aluno</legend>
+
+      <p>
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required pattern=".*\S.*" title="Informe o nome do aluno">
+      </p>
+
+      <p>
+        <label for="idade">Idade:</label><br>
+        <input type="number" id="idade" name="idade" min="1" max="120" step="1" required>
+      </p>
+
+      <p>
+        <label for="curso">Curso:</label><br>
+        <select id="curso" name="curso" required>
+          <option value="">-- Selecione --</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Python">Python</option>
+          <option value="Java">Java</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="notaFinal">Nota Final:</label><br>
+        <input type="number" id="notaFinal" name="notaFinal" min="0" max="10" step="0.1" required>
+      </p>
+
+      <button type="button" id="btn-cadastrar">Cadastrar</button>
+      <button type="button" id="btn-cancelar" hidden>Cancelar edição</button>
+    </fieldset>
+  </form>
+
+  <!-- Exercício 1: tabela com os alunos cadastrados -->
+  <h2>Alunos cadastrados</h2>
+  <table border="1" cellpadding="6">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Curso</th>
+        <th>Nota Final</th>
+        <th>Situação</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="corpo-tabela"></tbody>
+  </table>
+
+  <!-- Exercício 4: relatórios (atualizados automaticamente) -->
+  <h2>Relatórios</h2>
+  <p>Os relatórios são atualizados automaticamente a cada cadastro, edição ou exclusão.</p>
+
+  <h3>Alunos aprovados (nota final &ge; 7)</h3>
+  <ul id="rel-aprovados"></ul>
+
+  <h3>Média das notas finais</h3>
+  <p id="rel-media-notas"></p>
+
+  <h3>Média das idades</h3>
+  <p id="rel-media-idades"></p>
+
+  <h3>Nomes em ordem alfabética</h3>
+  <ul id="rel-nomes"></ul>
+
+  <h3>Quantidade de alunos por curso</h3>
+  <ul id="rel-por-curso"></ul>
+
+  <script src="js/Aluno.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

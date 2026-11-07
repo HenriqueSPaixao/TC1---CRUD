@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Startup Tech - Gestão de Funcionários</title>
+</head>
+<body>
+  <h1>Gestão de Funcionários</h1>
+  <p>Cadastrar, listar, editar, excluir e gerar relatórios dos funcionários da startup.</p>
+
+  <!-- Exercício 1: formulário de cadastro -->
+  <form id="form-funcionario">
+    <fieldset>
+      <legend id="titulo-form">Cadastrar funcionário</legend>
+
+      <p>
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required pattern=".*\S.*" title="Informe o nome do funcionário">
+      </p>
+
+      <p>
+        <label for="idade">Idade:</label><br>
+        <input type="number" id="idade" name="idade" min="14" max="100" step="1" required>
+      </p>
+
+      <p>
+        <label for="cargo">Cargo:</label><br>
+        <input type="text" id="cargo" name="cargo" required pattern=".*\S.*" title="Informe o cargo">
+      </p>
+
+      <p>
+        <label for="salario">Salário (R$):</label><br>
+        <input type="number" id="salario" name="salario" min="0" step="0.01" required>
+      </p>
+
+      <button type="button" id="btn-cadastrar">Cadastrar</button>
+      <button type="button" id="btn-cancelar" hidden>Cancelar edição</button>
+    </fieldset>
+  </form>
+
+  <p id="mensagem" aria-live="polite"></p>
+
+  <!-- Exercícios 1, 2 e 3: listagem, busca, edição e exclusão -->
+  <h2>Funcionários cadastrados</h2>
+
+  <p>
+    <label for="busca">Buscar por nome:</label>
+    <input type="search" id="busca" placeholder="Digite parte do nome">
+  </p>
+
+  <table border="1" cellpadding="6">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Cargo</th>
+        <th>Salário</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="corpo-tabela"></tbody>
+  </table>
+
+  <!-- Exercício 4: relatórios com map, filter, reduce e Set -->
+  <h2>Relatórios</h2>
+  <p>Os relatórios são atualizados automaticamente a cada cadastro, edição ou exclusão.</p>
+
+  <h3>Funcionários com salário maior que R$ 5.000,00</h3>
+  <ul id="rel-salario-alto"></ul>
+
+  <h3>Média salarial</h3>
+  <p id="rel-media-salarial"></p>
+
+  <h3>Cargos únicos</h3>
+  <ul id="rel-cargos"></ul>
+
+  <h3>Nomes em maiúsculo</h3>
+  <ul id="rel-nomes-maiusculo"></ul>
+
+  <script src="js/Funcionario.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
